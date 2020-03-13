@@ -13,6 +13,8 @@ export default {
       if (typeof this.image === 'string') {
         return this.image
       }
+      if(this.image==null)
+        return '';
       const path = this.image.path || ''
       if (path === '' || path === undefined) {
         return ''

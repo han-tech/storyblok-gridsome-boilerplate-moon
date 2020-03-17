@@ -7,6 +7,9 @@
     "explore": "gridsome explore"
   },
   "dependencies": {
+    "auth0-js": "^9.12.2",
+    "axios": "^0.19.2",
+    "core-js": "2.6.5",
     "gridsome": "^0.7.0",
     "gridsome-source-storyblok": "^0.2.2",
     "nprogress": "^0.2.0"

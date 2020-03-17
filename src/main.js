@@ -9,10 +9,12 @@ import { setupMetaTags } from './utils/meta-tags'
 
 import './assets/css/reset.css'
 import './assets/sass/global.scss'
+import auth from './utils/auth'
 
 export default function (Vue, { router, head, isClient }) {
   NProgress.configure()
 
+  Vue.use(auth)
   // Set default layout as a global component
   Vue.component('Layout', DefaultLayout)
 
@@ -21,7 +23,24 @@ export default function (Vue, { router, head, isClient }) {
     Vue.component(key, Components[key])
   })
 
-  router.beforeEach((_, from, next) => {
+  // very basic "setup" of a global guard
+  router.beforeEach((to, from, next) => {
+    if(to.path != '/dashboard') { // check if "to"-route is not "dashboard" and allow access
+      next()
+    } else if (router.app.$auth.isAuthenticated()) { // if authenticated allow access
+      if (from.name !== null) {
+        if (from.query._storyblok) {
+          return next(false)
+        }
+        NProgress.start()
+      }
+      next()
+    } else { // trigger auth0's login.
+      router.app.$auth.login()
+    }
+  })
+
+/*   router.beforeEach((_, from, next) => {
     if (from.name !== null) {
       if (from.query._storyblok) {
         return next(false)
@@ -29,7 +48,7 @@ export default function (Vue, { router, head, isClient }) {
       NProgress.start()
     }
     next()
-  })
+  }) */
       
   router.afterEach(() => {
     NProgress.done()

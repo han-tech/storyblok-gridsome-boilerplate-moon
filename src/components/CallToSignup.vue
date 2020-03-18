@@ -1,31 +1,31 @@
 <template>
-  <div class="call-to-about" v-editable="blok">
-    <div class="call-to-about-mask"></div>
+  <div class="call-to-signup" v-editable="blok">
+    <div class="call-to-signup-mask"></div>
     
     <div
-      class="call-to-about-image"
+      class="call-to-signup-image"
       :style="callToAboutImageStyle"
     >
       <g-link
         class="link only-desktop"
-        to="/about"
-        title="Go to About Us page"
+        to="/signup"
+        title="Go to Sign up page"
       >
-        <img src="/more-icon.svg" alt="" />
+        <img src="/sign-up.svg" alt="" />
       </g-link>
     </div>
 
-    <div class="call-to-about-section">
-      <h2 class="call-to-about-section_title">{{blok.title}}</h2>
+    <div class="call-to-signup-section">
+      <h2 class="call-to-signup-section_title">{{blok.title}}</h2>
 
-      <p class="call-to-about-section_description">{{blok.description}}</p>
+      <p class="call-to-signup-section_description">{{blok.description}}</p>
 
       <g-link
-        class="link button is-primary only-mobile about-button"
-        to="/about"
-        title="Go to About page"
+        class="link button is-primary only-mobile signup-button"
+        to="/signup"
+        title="Go to Sign up page"
       >
-        Check out!
+        Sign up!
       </g-link>
     </div>
   </div>
@@ -35,15 +35,15 @@
 import Link from './Link'
 
 export default {
-  name: 'CallToAbout',
+  name: 'CallToSignup',
   props: ['blok'],
   components: {
     Link
   },
   computed: {
-    callToAboutImageStyle () {
+    callToSignupImageStyle () {
       return {
-        'background-image': `url(https:${this.blok.image.url})`
+        'background-image': `url(https:${this.blok.image})`
       }
     }
   }
@@ -51,7 +51,7 @@ export default {
 </script>
 
 <style lang="scss">
-.call-to-about {
+.call-to-signup {
   padding-top: $desktop-grid-gap;
   margin: 0 auto;
   display: flex;
@@ -59,17 +59,17 @@ export default {
   position: relative;
 }
 
-.call-to-about .link {
+.call-to-signup .link {
   margin-top: 20px;
 }
 
-.call-to-about-mask {
+.call-to-signup-mask {
   width: 556px;
   height: 556px;
   background-color: #edf6fb;
 }
 
-.call-to-about-image {
+.call-to-signup-image {
   width: 556px;
   height: 356px;
   float: left;
@@ -78,7 +78,7 @@ export default {
   margin-top: 100px;
 }
 
-.call-to-about-image .link {
+.call-to-signup-image .link {
   position: absolute;
   right: -34px;
   bottom: 15%;
@@ -86,11 +86,11 @@ export default {
   transition: all 0.3s ease;
 }
 
-.call-to-about:hover .call-to-about-image .link {
+.call-to-signup:hover .call-to-signup-image .link {
   opacity: 1;
 }
 
-.call-to-about-section {
+.call-to-signup-section {
   width: 556px;
   height: 356px;
   margin-top: 100px;
@@ -98,7 +98,7 @@ export default {
   padding-right: $desktop-grid-gap;
 }
 
-.call-to-about-section_title {
+.call-to-signup-section_title {
   font-size: 65px;
   font-weight: 800;
   line-height: 1.15;
@@ -106,7 +106,7 @@ export default {
   margin-top: $desktop-grid-gap;
 }
 
-.call-to-about-section_description {
+.call-to-signup-section_description {
   font-size: 16px;
   color: $blog-text-color;
   line-height: 1.63;
@@ -114,21 +114,21 @@ export default {
 }
 
 @media screen and (max-width: 762px) {
-  .call-to-about {
+  .call-to-signup {
     display: inline;
   }
 
-  .call-to-about-mask {
+  .call-to-signup-mask {
     display: none;
   }
 
-  .call-to-about-image {
+  .call-to-signup-image {
     margin: 0 auto;
     width: 95%;
     float: none;
   }
 
-  .call-to-about-section {
+  .call-to-signup-section {
     width: 100%;
     height: auto;
     margin: 0;
@@ -136,7 +136,7 @@ export default {
     text-align: center;
   }
 
-  .call-to-about-section_title { 
+  .call-to-signup-section_title { 
     margin-top: 0px;
     font-size: 65px;
     font-weight: bold;
@@ -144,17 +144,17 @@ export default {
     font-size: 50px;
   }
 
-  .about-button {
+  .signup-button {
     margin: 0 auto;
   }
 } 
 
 @media screen and (max-width: 1200px){
-  .call-to-about-section {
+  .call-to-signup-section {
     padding: $mobile-container-spacing;
   }
 
-  .call-to-about-section_title {
+  .call-to-signup-section_title {
     font-size: 55px;
     margin-top: 0;
   }

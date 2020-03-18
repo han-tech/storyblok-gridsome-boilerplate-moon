@@ -24,9 +24,15 @@
 
 <script>
 export default {
-  name: 'HelloWorld',
+  name: 'Dashboard',
   props: {
     msg: String
+  },
+  data() {
+    return {
+      story: {content: {}},
+      oldPath: ''
+    }
   },
   computed: {
     globalData () {

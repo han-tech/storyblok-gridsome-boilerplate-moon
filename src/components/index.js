@@ -21,6 +21,10 @@ import BlogPostContent from './BlogPostContent.vue'
 import BlogPost from './BlogPost.vue'
 import BlogPostHeader from './BlogPostHeader.vue'
 import BlogCard from './BlogCard.vue'
+import Grid from './Grid.vue'
+import Feature from './Feature.vue'
+import Slide from './Slide.vue'
+
 
 export default {
   Page,
@@ -45,5 +49,8 @@ export default {
   BlogPostContent,
   BlogPost,
   BlogPostHeader,
-  BlogCard
+  BlogCard,
+  Grid,
+  Feature,
+  Slide
 }
